@@ -1,14 +1,15 @@
 {
-  "name": "sequelize-auto-migrations",
+  "name": "sequelize-migrations-auto",
   "version": "1.0.0",
   "description": "Sequelize migrations generator && runner",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test-cov": "jest --coverage --runInBand --forceExit"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/flexxnn/sequelize-auto-migrations.git"
+    "url": "git+https://github.com/logoran/sequelize-migrations-auto.git"
   },
   "keywords": [
     "sequelize",
@@ -18,19 +19,34 @@
     "db",
     "sql"
   ],
-  "author": "Michael Maslov",
+  "author": "Leo Long",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/flexxnn/sequelize-auto-migrations/issues"
+    "url": "https://github.com/logoran/sequelize-migrations-auto/issues"
   },
-  "homepage": "https://github.com/flexxnn/sequelize-auto-migrations#readme",
+  "homepage": "https://github.com/logoran/sequelize-migrations-auto#readme",
   "dependencies": {
     "async": "^2.5.0",
     "command-line-args": "^4.0.6",
-    "deep-diff": "^0.3.8",
     "js-beautify": "^1.6.14",
     "lodash": "^4.17.4",
     "object-hash": "^1.1.8",
+    "order-diff": "^1.0.6",
     "sequelize": "^4.3.2"
+  },
+  "devDependencies": {
+    "jest": "^23.3.0",
+    "mysql2": "^1.5.3"
+  },
+  "jest": {
+    "testMatch": [
+      "**/test/!(helpers)/*.js"
+    ],
+    "coverageReporters": [
+      "text-summary",
+      "lcov"
+    ],
+    "bail": true,
+    "testEnvironment": "node"
   }
 }
